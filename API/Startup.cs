@@ -17,7 +17,7 @@ using Microsoft.OpenApi.Models;
 namespace API
 {
     public class Startup
-    { 
+    {
         private readonly IConfiguration _config;
         public Startup(IConfiguration config)
         {
@@ -28,7 +28,7 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             // var getValue = _config["ConnectionStrings:DefaultConnection"];
-            services.AddDbContext<DataContext>(options => 
+            services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
@@ -54,7 +54,7 @@ namespace API
 
             app.UseRouting();
 
-            app.UseCors(corsPoilicyBuilder => 
+            app.UseCors(corsPoilicyBuilder =>
                 corsPoilicyBuilder
                     .AllowAnyHeader()
                     .AllowAnyMethod()
